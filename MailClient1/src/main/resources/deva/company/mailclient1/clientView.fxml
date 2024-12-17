@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="786.0" prefWidth="1277.0" stylesheets="@styles/client.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deva.company.mailclient1.controller.client.ClientController" fx:id="rootPane" >
+    <HBox layoutY="2.0" prefHeight="57.0" prefWidth="1277.0" styleClass="client-navbar" stylesheets="@styles/client.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <ImageView fitHeight="41.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@images/mail.png" />
+           </ImageView>
+           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QuickMail">
+               <font>
+                   <Font name="System Bold" size="21.0" />
+               </font>
+           </Text>
+        <Label fx:id="lblConnectionStatus" alignment="CENTER" prefHeight="30.0" prefWidth="1277.0"
+               style="-fx-background-color: rgba(255, 0, 0, 0.7); -fx-text-fill: white; -fx-font-size: 36px;"
+               text="Server disconnected!" visible="false" AnchorPane.topAnchor="57.0" AnchorPane.leftAnchor="20.0" />
+        <BorderPane prefHeight="76.0" prefWidth="1275.0">
+            <right>
+                <Button mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #fff; -fx-border-width: 2px; -fx-border-radius: 5px;" text="LOGOUT" textFill="RED" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets right="20.0" />
+                    </BorderPane.margin>
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.8947368264198303" green="0.8947368264198303" blue="0.8947368264198303" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
+            </right>
+            <left>
+                <AnchorPane prefHeight="56.0" prefWidth="246.0" BorderPane.alignment="CENTER" />
+            </left>
+        </BorderPane>
+    </HBox>
+    <SplitPane dividerPositions="0.5" layoutY="64.0" orientation="HORIZONTAL" prefHeight="723.0" prefWidth="1275.0" style="-fx-background-color: #fff; -fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="59.0">
+        <VBox maxWidth="400.0" prefWidth="200.0" stylesheets="@styles/client.css">
+            <HBox prefHeight="94.0">
+                <children>
+                    <ImageView fitHeight="35.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                        <effect>
+                            <Blend />
+                        </effect>
+                        <HBox.margin>
+                            <Insets left="16.0" top="20.0" />
+                        </HBox.margin>
+                        <Image url="@images/user.png" />
+                    </ImageView>
+                    <Label fx:id="lblUsername" alignment="TOP_LEFT" prefHeight="17.0" text="davide.petroni@unito.it">
+                        <HBox.margin>
+                            <Insets left="10.0" top="30.0" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="86.0">
+                <children>
+                    <Button fx:id="newEmailBtn" alignment="BASELINE_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNewEmail" prefHeight="41.0" styleClass="btn" stylesheets="@styles/client.css" text="Write new email">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0">
+                <children>
+                    <Button fx:id="inboxBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showInbox" prefHeight="26.0" styleClass="btn" stylesheets="@styles/client.css" text="Inbox">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Text fx:id="inboxCount" strokeType="OUTSIDE"  strokeWidth="0.0" wrappingWidth="30.0">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Text>
+                    <Text fx:id="txtNewInbox" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW" visible="false" wrappingWidth="73.0">
+                        <HBox.margin>
+                            <Insets left="30.0" />
+                        </HBox.margin>
+                    </Text>
+                </children>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0">
+                <children>
+                    <Button fx:id="sentBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showSent" prefHeight="26.0" styleClass="btn" stylesheets="@styles/client.css" text="Sent">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Text fx:id="sentCount" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="15.0">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Text>
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="63.0">
+                <children>
+                    <Button fx:id="trashedBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showTrashed" prefHeight="26.0" styleClass="btn" stylesheets="@styles/client.css" text="Trash">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Text fx:id="trashedCount" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Text>
+                </children>
+            </HBox>
+            <Separator opacity="0.0" prefHeight="413.0" />
+        </VBox>
+        <BorderPane style="-fx-background-color: #000;">
+            <left>
+                <ListView fx:id="listEmails" prefWidth="200.0" style="-fx-border-color: black; -fx-border-style: hidden solid solid solid;" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="-1.0" top="-2.0" />
+                    </BorderPane.margin>
+                </ListView>
+            </left>
+            <center>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
+                    <top>
+                        <GridPane prefHeight="96.0" style="-fx-background-color: #f8f9fa; -fx-border-color: black; -fx-border-style: hidden solid hidden hidden;" BorderPane.alignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="From:" />
+                                <Label text="To:" GridPane.rowIndex="1" />
+                                <Label text="Subject:" GridPane.rowIndex="2" />
+                                <Label fx:id="lblFrom" text="Label" GridPane.columnIndex="1" />
+                                <Label fx:id="lblTo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="lblSubject" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            </children>
+                            <padding>
+                                <Insets left="12.0" right="12.0" />
+                            </padding>
+                            <BorderPane.margin>
+                                <Insets right="-1.0" top="-2.0" />
+                            </BorderPane.margin>
+                        </GridPane>
+                    </top>
+                    <center>
+                        <TextArea fx:id="txtEmail" editable="false" prefHeight="320.0" style="-fx-border-color: black; -fx-border-style: hidden solid hidden solid;" wrapText="true" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets left="-1.0" right="-1.0" />
+                            </BorderPane.margin>
+                        </TextArea>
+                    </center>
+                    <bottom>
+                        <AnchorPane prefHeight="76.0" style="-fx-background-color: #f8f9fa; -fx-border-color: black; -fx-border-style: hidden solid solid hidden;" BorderPane.alignment="CENTER">
+                            <children>
+                                <Button fx:id="btnDelete" layoutX="510.0" layoutY="22.0" mnemonicParsing="false" onAction="#onDeleteBtnClick" prefHeight="32.0" prefWidth="86.0" style="-fx-background-color: #c44536;" text="Delete" textFill="WHITE">
+                                    <font>
+                                        <Font name="Georgia" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnForward" layoutX="274.0" layoutY="25.0" mnemonicParsing="false" onAction="#onForwardBtnClick" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #2a6f97;" text="Forward" textFill="WHITE">
+                                    <font>
+                                        <Font name="Georgia" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnReply" layoutX="155.0" layoutY="25.0" mnemonicParsing="false" onAction="#onReplyBtnClick" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #2a6f97;" text="Reply" textFill="WHITE">
+                                    <font>
+                                        <Font name="Georgia" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnReplyAll" layoutX="40.0" layoutY="25.0" mnemonicParsing="false" onAction="#onReplyAllBtnClick" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #2a6f97;" text="Reply All" textFill="WHITE">
+                                    <font>
+                                        <Font name="Georgia" size="12.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets bottom="-1.0" right="-1.0" />
+                            </BorderPane.margin>
+                        </AnchorPane>
+                    </bottom>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </SplitPane>
+
+    <Pane fx:id="overlayPane" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label style="-fx-font-size: 24px;" text="Server Disconnected" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+        </children>
+    </Pane>
+</AnchorPane>

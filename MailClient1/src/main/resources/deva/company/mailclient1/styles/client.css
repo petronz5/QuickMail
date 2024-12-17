@@ -1,0 +1,60 @@
+/* Navbar del client */
+.client-navbar {
+    -fx-background-color: #1565C0 !important; /* Blu scuro */
+    -fx-font-weight: 600;
+    -fx-border-style: hidden hidden solid hidden !important;
+    -fx-border-color: #0D47A1; /* Blu più scuro */
+    -fx-border-width: 1px;
+}
+
+/* Contenitore principale del client */
+.client-container {
+    -fx-border-style: solid;
+    -fx-border-color: #1976D2; /* Blu medio */
+    -fx-border-width: 1px;
+    -fx-background-color: #BBDEFB; /* Azzurro chiaro */
+}
+
+/* Nuovo messaggio */
+.new-mail-cont {
+    -fx-border-style: solid hidden hidden hidden;
+    -fx-border-color: #0D47A1; /* Blu più scuro */
+    -fx-border-width: 2px;
+}
+
+/* Contenitore split-pane */
+.split-pane-cont {
+    -fx-border-style: hidden solid hidden hidden;
+    -fx-border-color: #0D47A1; /* Blu più scuro */
+    -fx-border-width: 2px;
+}
+
+/* Controlli email */
+.email-controls {
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-color: #0D47A1; /* Blu più scuro */
+    -fx-border-width: 2px;
+}
+
+/* Pulsante menu attivo */
+.btn-menu-active {
+    -fx-background-color: #64B5F6; /* Azzurro chiaro */
+    -fx-background-radius: 5px;
+}
+
+/* Pulsanti generici */
+.btn {
+    -fx-background-color: none;
+    -fx-border-color: #1976D2; /* Blu medio */
+    -fx-border-radius: 5px;
+}
+
+.btn:hover {
+    -fx-background-color: #64B5F6; /* Azzurro chiaro */
+    -fx-background-radius: 5px;
+}
+
+/* Stile delle immagini */
+.img-style {
+    -fx-background-radius: 5;
+}

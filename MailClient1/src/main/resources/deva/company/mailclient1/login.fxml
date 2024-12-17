@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="653.0" prefWidth="842.0" stylesheets="@styles/login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deva.company.mailclient1.controller.LoginController">
+    <VBox prefHeight="653.0" prefWidth="223.0" styleClass="login-logo-container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ImageView fitHeight="82.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/mail.png" />
+            </image>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </ImageView>
+        <HBox alignment="CENTER" prefHeight="82.0" prefWidth="309.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="QuickMail">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+    </VBox>
+    <Text layoutX="280.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inserisci il tuo indirizzo email" textAlignment="CENTER" wrappingWidth="512.2000007629395" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="49.79999923706055">
+        <font>
+            <Font name="JetBrains Mono Bold" size="21.0" />
+        </font>
+    </Text>
+    <TextField fx:id="emailField" layoutX="364.0" layoutY="205.0" prefHeight="30.0" prefWidth="344.0" promptText="Indirizzo Email" />
+    <Button fx:id="loginBtn" layoutX="486.0" layoutY="256.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#login" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" styleClass="login-logo-container" text="Login" textFill="WHITE">
+        <font>
+            <Font name="JetBrains Mono Medium" size="15.0" />
+        </font>
+    </Button>
+</AnchorPane>

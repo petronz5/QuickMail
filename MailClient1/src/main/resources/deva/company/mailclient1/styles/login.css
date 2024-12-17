@@ -1,0 +1,19 @@
+/* Background del login */
+.login-container {
+    -fx-background-color: #E3F2FD; /* Azzurro chiarissimo */
+}
+
+/* Logo container styles */
+.login-logo-container {
+    -fx-background-color: #1565C0; /* Blu scuro */
+    -fx-alignment: center;
+}
+
+.login-logo-container Text {
+    -fx-font-size: 24px;
+    -fx-fill: #FFFFFF; /* Bianco */
+}
+
+.login-logo-container FontAwesomeIconView {
+    -fx-fill: #BBDEFB; /* Azzurro chiaro */
+}
